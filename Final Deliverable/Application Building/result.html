@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Primary Meta Tags -->
+<title>InProh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="title" content="InPro">
+<meta name="author" content="InPro">
+
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="../static/assets/img/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/assets/img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/assets/img/favicon/favicon-16x16.png">
+<link rel="manifest" href="../static/assets/img/favicon/site.webmanifest">
+
+<!-- Fontawesome -->
+<link type="text/css" href="../static/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+<!-- Pixel CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/neumorphism.css') }}">
+
+</head>
+
+<body>
+     
+    <header class="header-global">
+    <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-light">
+        <div class="container position-relative">
+            <a class="navbar-brand shadow-soft py-2 px-3 rounded border border-light mr-lg-4" href="/">
+                <img class="navbar-brand-dark" src="{{ url_for('static', filename='css/logo.jpg') }}" alt="Logo light">
+                <img class="navbar-brand-light" src="{{ url_for('static', filename='css/logo.jpg') }}" alt="Logo dark">
+            </a>
+            <div class="navbar-collapse collapse" id="navbar_global">
+                <div class="navbar-collapse-header">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a href="/" class="navbar-brand shadow-soft py-2 px-3 rounded border border-light">
+                                <img src="{{ url_for('static', filename='css/logo.jpg') }}" alt="InPro logo">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <a href="/contact" target="_blank" class="btn btn-primary text-secondary d-none d-md-inline-block mr-3"><i class="far fa-paper-plane mr-2"></i> Report</a>
+                <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+    <main>
+
+        <!-- Result -->
+        <div class="section section-header pb-7">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-8 text-center">
+                        <h1 class="display-2 mb-4">Lost or Not Lost?!</h1>
+                        <p class="lead">Is <a href= {{ url }} target="_blank">{{ url }}</a> safe to use?</p>
+                        <br>
+                        <h3>{{ msg }}</h3>
+                        <br>
+                        
+                        <img src="{{ url_for('static', filename='css/notscammed.gif') }}" alt="legitimate site" id="legitimate">                      
+                        
+                        <img src="{{ url_for('static', filename='css/nelson-its-a-scam.gif') }}" alt="phishing site" id="phishing">
+                        <br>
+                        <br>
+                        <br>
+                        <button type="submit" class="btn btn-primary button1" onclick="window.open('{{url}}')" target="_blank"><span class="fa fa-user-secret mr-2"></span>Proceed to this site!</button>
+                    </div>
+            </div>        
+        </div>
+    </main>
+
+        </div>
+        <hr class="my-5">
+        <div class="row">
+            <div class="col">
+            <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                <p class="font-weight-normal font-small mb-0">Copyright © InPro
+                    <span class="current-year">2022</span>. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Core -->
+<script src="../static/vendor/jquery/dist/jquery.min.js"></script>
+<script src="../static/vendor/popper.js/dist/umd/popper.min.js"></script>
+<script src="../static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../static/vendor/headroom.js/dist/headroom.min.js"></script>
+
+<!-- Vendor JS -->
+<script src="../static/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+<script src="../static/vendor/nouislider/distribute/nouislider.min.js"></script>
+<script src="../static/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="../static/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="../static/vendor/jarallax/dist/jarallax.min.js"></script>
+<script src="../static/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+<script src="../static/vendor/jquery-countdown/dist/jquery.countdown.min.js"></script>
+<script src="../static/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="../static/vendor/prismjs/prism.js"></script>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- Neumorphism JS -->
+<script src="{{ url_for('static', filename='css/neumorphism.js') }}"></script>
+
+<script>
+    let x= '{{val}}'
+    if(x==1){
+        document.getElementById('phishing').style.display = 'none';
+    }else{
+        document.getElementById('legitimate').style.display = 'none';
+    }
+</script>
+
+</body>
+
+</html>
